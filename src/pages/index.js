@@ -2,13 +2,8 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 
+// components
 import { search, mapImageResources, getFolders } from '../lib/cloudinary';
-
-import Layout from '@components/Layout';
-import Container from '@components/Container';
-import Button from '@components/Button';
-
-import styles from '@styles/Home.module.scss';
 
 export default function Home({
   images: defaultImages,
@@ -68,18 +63,18 @@ export default function Home({
   }, [activeFolder]);
 
   return (
-    <Layout>
+    <>
       <Head>
         <title>My Images</title>
         <meta name='description' content='All of my cool images.' />
       </Head>
 
-      <Container>
+      <>
         <h1 className='sr-only'>My Images</h1>
 
-        <h2 className={styles.header}>Folders</h2>
+        <h2>Folders</h2>
 
-        <ul className={styles.folders} onClick={handleOnFolderClick}>
+        <ul onClick={handleOnFolderClick}>
           {folders.map((folder) => {
             return (
               <li key={folder.path}>
@@ -89,16 +84,16 @@ export default function Home({
           })}
         </ul>
         <p>
-          <Button onClick={handleLoadMore}>Load More Results</Button>
+          <button onClick={handleLoadMore}>Load More Results</button>
         </p>
-        <h2 className={styles.header}>Images</h2>
+        <h2>Images</h2>
 
-        <ul className={styles.images}>
+        <ul>
           {images.map((image) => {
             return (
               <li key={image.id}>
                 <a href={image.link} rel='noreferrer'>
-                  <div className={styles.imageImage}>
+                  <div>
                     <Image
                       width={image.width}
                       height={image.height}
@@ -106,14 +101,14 @@ export default function Home({
                       alt=''
                     />
                   </div>
-                  <h3 className={styles.imageTitle}>{image.title}</h3>
+                  <h3>{image.title}</h3>
                 </a>
               </li>
             );
           })}
         </ul>
-      </Container>
-    </Layout>
+      </>
+    </>
   );
 }
 
