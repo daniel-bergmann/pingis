@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import styled from 'styled-components';
+
+// Components
+import Hero from '@components/hero';
 
 // components
 import { search, mapImageResources, getFolders } from '../lib/cloudinary';
@@ -13,6 +17,7 @@ export default function Home({
   const [images, setImages] = useState(defaultImages);
   const [nextCursor, setNextCursor] = useState(defaultNextCursor);
   const [activeFolder, setActiveFolder] = useState('');
+  const [activate, setActivate] = useState(false);
 
   async function handleLoadMore(e) {
     e.preventDefault();
@@ -35,6 +40,7 @@ export default function Home({
   }
 
   function handleOnFolderClick(e) {
+    setActivate(true);
     const folderPath = e.target.dataset.folderPath;
     setActiveFolder(folderPath);
     setNextCursor(undefined);
@@ -65,48 +71,54 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>My Images</title>
-        <meta name='description' content='All of my cool images.' />
+        <title>Table Tennis Iceland</title>
+        <meta name='description' content='Icelandic table tennis' />
       </Head>
 
       <>
-        <h1 className='sr-only'>My Images</h1>
+        <Hero />
 
-        <h2>Folders</h2>
+        <Container>
+          <ul onClick={handleOnFolderClick}>
+            {folders.map((folder) => {
+              return (
+                <li key={folder.path}>
+                  <button data-folder-path={folder.path}>
+                    <p>View Images</p>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </Container>
 
-        <ul onClick={handleOnFolderClick}>
-          {folders.map((folder) => {
-            return (
-              <li key={folder.path}>
-                <button data-folder-path={folder.path}>{folder.name}</button>
-              </li>
-            );
-          })}
-        </ul>
-        <p>
-          <button onClick={handleLoadMore}>Load More Results</button>
-        </p>
-        <h2>Images</h2>
-
-        <ul>
-          {images.map((image) => {
-            return (
-              <li key={image.id}>
-                <a href={image.link} rel='noreferrer'>
-                  <div>
-                    <Image
-                      width={image.width}
-                      height={image.height}
-                      src={image.image}
-                      alt=''
-                    />
-                  </div>
-                  <h3>{image.title}</h3>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+        <ImgContainer>
+          <ul>
+            {images.map((image) => {
+              return (
+                <li key={image.id}>
+                  <a href={image.link} rel='noreferrer'>
+                    <div>
+                      <Image
+                        width={image.width}
+                        height={image.height}
+                        src={image.image}
+                        alt=''
+                      />
+                    </div>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          {!activate ? (
+            <p>Your serve.</p>
+          ) : (
+            <button onClick={handleLoadMore}>
+              <p>Load More Images</p>
+            </button>
+          )}
+        </ImgContainer>
       </>
     </>
   );
@@ -131,3 +143,23 @@ export async function getStaticProps() {
     },
   };
 }
+
+const Container = styled.header`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  @media (min-width: 768px) {
+  }
+`;
+
+const ImgContainer = styled.header`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  @media (min-width: 768px) {
+  }
+`;
