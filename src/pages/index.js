@@ -17,7 +17,7 @@ export default function Home({
   const [images, setImages] = useState(defaultImages);
   const [nextCursor, setNextCursor] = useState(defaultNextCursor);
   const [activeFolder, setActiveFolder] = useState('');
-  const [activate, setActivate] = useState(false);
+
 
   async function handleLoadMore(e) {
     e.preventDefault();
@@ -40,7 +40,6 @@ export default function Home({
   }
 
   function handleOnFolderClick(e) {
-    setActivate(true);
     const folderPath = e.target.dataset.folderPath;
     setActiveFolder(folderPath);
     setNextCursor(undefined);
@@ -111,13 +110,10 @@ export default function Home({
               );
             })}
           </ul>
-          {!activate ? (
-            <p>Your serve.</p>
-          ) : (
-            <button onClick={handleLoadMore}>
-              <p>Load More Images</p>
-            </button>
-          )}
+
+          <button onClick={handleLoadMore}>
+            <p>Load More Images</p>
+          </button>
         </ImgContainer>
       </>
     </>
