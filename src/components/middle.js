@@ -9,27 +9,40 @@ import whiteball from '../../public/images/whiteball.svg';
 export default function middle() {
   return (
     <Container>
-      <Content>
-        <p>Created by Daniel Bergmann</p>
-      </Content>
+      <Upper>
+        <Image src={whiteball} alt='tti Hero' />
+        <Image src={whiteBat} alt='tti Hero' />
+      </Upper>
+      <Lower>
+        <Image src={blackBat} alt='tti Hero' />
+        <Image src={blackball} alt='tti Hero' />
+      </Lower>
+     
     </Container>
   );
 }
 const Container = styled.header`
-  height: 10vh;
+  height: 100vh;
   @media (min-width: 768px) {
   }
 `;
 
-const Content = styled.header`
-  height: 100%;
-  background: #333;
-  color: white;
-
+const Upper = styled.header`
   display: flex;
-  flex-direction: column;
+
   align-items: center;
-  justify-content: center;
+  height: 50%;
+  background: #333;
+  justify-content: space-around;
+  @media (min-width: 768px) {
+  }
+`;
+const Lower = styled.header`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50%;
+
   @media (min-width: 768px) {
   }
 `;

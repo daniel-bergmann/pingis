@@ -8,6 +8,7 @@ import Hero from '@components/hero';
 
 // components
 import { search, mapImageResources, getFolders } from '../lib/cloudinary';
+import Middle from '@components/middle';
 
 export default function Home({
   images: defaultImages,
@@ -17,7 +18,6 @@ export default function Home({
   const [images, setImages] = useState(defaultImages);
   const [nextCursor, setNextCursor] = useState(defaultNextCursor);
   const [activeFolder, setActiveFolder] = useState('');
-
 
   async function handleLoadMore(e) {
     e.preventDefault();
@@ -76,14 +76,15 @@ export default function Home({
 
       <>
         <Hero />
-
+        <Middle />
         <Container>
+          <h1>Pick your favourite season</h1>
           <ul onClick={handleOnFolderClick}>
             {folders.map((folder) => {
               return (
                 <li key={folder.path}>
                   <button data-folder-path={folder.path}>
-                    <p>View Images</p>
+                    <p>{folder.name}</p>
                   </button>
                 </li>
               );
@@ -97,7 +98,7 @@ export default function Home({
               return (
                 <li key={image.id}>
                   <a href={image.link} rel='noreferrer'>
-                    <div>
+                    <div className='imageDiv'>
                       <Image
                         width={image.width}
                         height={image.height}
@@ -141,6 +142,10 @@ export async function getStaticProps() {
 }
 
 const Container = styled.header`
+  h1 {
+    text-align: center;
+    margin: 20px;
+  }
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -156,6 +161,13 @@ const ImgContainer = styled.header`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  .imageDiv {
+    margin: 20px 0;
+  }
   @media (min-width: 768px) {
+    .imageDiv {
+      margin: 80px 20px;
+      width: 1000px;
+    }
   }
 `;

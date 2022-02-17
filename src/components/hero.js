@@ -8,21 +8,24 @@ export default function Header() {
   return (
     <Container>
       <Half>
+        <h1>Table Tennis Iceland - History archive</h1>
         <Image src={hero} alt='tti Hero' />
-      </Half>
-      <Half>
-        <Image src={herologo} alt='tti Hero' />
       </Half>
     </Container>
   );
 }
 
 const Container = styled.header`
+  h1 {
+    padding: 20px;
+    text-align: center;
+  }
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 50vh;
   width: 100% auto;
   @media (min-width: 768px) {
+    height: 100vh;
     flex-direction: row;
   }
 `;
