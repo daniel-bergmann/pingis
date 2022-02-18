@@ -39,7 +39,7 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>Table Tennis Illustration</title>
+        <title>pingis.is - home</title>
         <meta name='description' content='Table Tennis images from Iceland.' />
       </Head>
       {/* The hero image */}

@@ -8,8 +8,8 @@ export default function about() {
   return (
     <>
       <Head>
-        <title>My Images</title>
-        <meta name='description' content='All of my cool images.' />
+        <title>pingis.is - buy</title>
+        <meta name='description' content='Table Tennis images from Iceland.' />
       </Head>
       <Container>
         <Half>
