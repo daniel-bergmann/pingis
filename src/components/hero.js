@@ -1,14 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import herologo from 'public/images/hero-logo.svg';
 import hero from 'public/images/tti-hero.png';
 
 export default function Header() {
   return (
     <Container>
       <Half>
-        <h1>Table Tennis Iceland - History archive</h1>
         <Image src={hero} alt='tti Hero' />
       </Half>
     </Container>

@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from 'next/image';
 
 export default function middle() {
+  let date = new Date().getFullYear();
   return (
     <Container>
       <Content>
-        <p>Created by Daniel Bergmann</p>
+        <p>
+          {' '}
+          <span dangerouslySetInnerHTML={{ __html: '&copy;' }} />
+          {' ' + date + ' ' + 'Table Tennis Illustrations, Daniel Bergmann.'}
+        </p>
       </Content>
     </Container>
   );

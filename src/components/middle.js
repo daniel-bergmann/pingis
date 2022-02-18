@@ -17,7 +17,6 @@ export default function middle() {
         <Image src={blackBat} alt='tti Hero' />
         <Image src={blackball} alt='tti Hero' />
       </Lower>
-     
     </Container>
   );
 }

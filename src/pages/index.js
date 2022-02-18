@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import Link from 'next/link';
+import styled from 'styled-components';
 import uuid from 'react-uuid';
 import Middle from '../components/middle';
 import Hero from '../components/hero';
@@ -15,7 +17,6 @@ export default function Home({
   const [images, setImages] = useState(defaultImages);
   const [nextCursor, setNextCursor] = useState(defaultNextCursor);
 
-  // ++++++
   async function handleLoadMore(e) {
     e.preventDefault();
     const results = await fetch('/api/search', {
@@ -35,42 +36,47 @@ export default function Home({
     setNextCursor(updatedNextCursor);
   }
 
-  // ++++++
-
   return (
     <>
       <Head>
-        <title>My Images</title>
-        <meta name='description' content='All of my cool images.' />
+        <title>Table Tennis Illustration</title>
+        <meta name='description' content='Table Tennis images from Iceland.' />
       </Head>
+      {/* The hero image */}
+      <Hero />
+      {/* Table tennis paddles */}
+      <Middle />
 
-      <>
-        <Hero />
-        <Middle />
-
-        <ul>
-          {images.map((image) => {
-            return (
-              <li key={uuid()}>
-                <a href={image.link} rel='noreferrer'>
-                  <div>
-                    <Image
-                      width={image.width}
-                      height={image.height}
-                      src={image.image}
-                      alt=''
-                    />
-                  </div>
-                  <h3>{image.title}</h3>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-        <p>
-          <button onClick={handleLoadMore}>Load More</button>
-        </p>
-      </>
+      <ul>
+        {images.map((image) => {
+          return (
+            <li key={uuid()}>
+              <a href={image.link} rel='noreferrer'>
+                <Container>
+                  <Link href='/buy' passHref>
+                    <div className='img'>
+                      <Image
+                        width={image.width}
+                        height={image.height}
+                        src={image.image}
+                        alt=''
+                      />
+                      <div className='text'>
+                        <h3>{image.title.slice(0, 9)}</h3>
+                        <p className='buy'>Buy print</p>
+                      </div>
+                    </div>
+                  </Link>
+                </Container>
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+      <LoadMore>
+        <button onClick={handleLoadMore}>Load More Illustrations</button>
+      </LoadMore>
+      <Middle />
     </>
   );
 }
@@ -90,3 +96,50 @@ export async function getStaticProps() {
     },
   };
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 60px 0;
+  h3 {
+    text-align: center;
+  }
+  .img {
+    .text {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+  }
+  @media (min-width: 768px) {
+    .img {
+      max-width: 800px;
+    }
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+      transition: all 0.5s ease-in-out;
+    }
+  }
+`;
+
+const LoadMore = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  button {
+    height: 80px;
+    width: 160px;
+  }
+  @media (min-width: 768px) {
+    button {
+      height: 80px;
+      width: 160px;
+    }
+  }
+`;
