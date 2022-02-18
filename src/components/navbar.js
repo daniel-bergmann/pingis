@@ -8,9 +8,6 @@ export default function navbar() {
   return (
     <Container>
       <ul>
-        <Link href='/' passHref>
-          <li>history(coming soon)</li>
-        </Link>
       </ul>
       <Link href='/' passHref>
         <Image className='logo' src={logo} alt='tti logo' />

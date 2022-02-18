@@ -75,7 +75,7 @@ export default function Home({
       </Head>
 
       <>
-        <Hero />
+        {/* <Hero /> */}
         <Middle />
         <Container>
           <h1>Pick your favourite season</h1>
