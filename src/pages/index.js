@@ -53,7 +53,7 @@ export default function Home({
             <li key={uuid()}>
               <a href={image.link} rel='noreferrer'>
                 <Container>
-                  <Link href='/buy' passHref>
+                  <Link href='/shop' passHref>
                     <div className='img'>
                       <Image
                         width={image.width}

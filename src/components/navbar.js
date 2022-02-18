@@ -8,8 +8,8 @@ export default function navbar() {
   return (
     <Container>
       <ul>
-        <Link href='/buy' passHref>
-          <li>buy</li>
+        <Link href='/shop' passHref>
+          <li>shop</li>
         </Link>
       </ul>
       <Link href='/' passHref>
