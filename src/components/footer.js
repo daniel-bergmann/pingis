@@ -9,7 +9,7 @@ export default function middle() {
         <p>
           {' '}
           <span dangerouslySetInnerHTML={{ __html: '&copy;' }} />
-          {' ' + date + ' ' + 'Table Tennis Illustrations.'}
+          {' ' + date + ' ' + 'pingis.is.'}
         </p>
       </Content>
     </Container>

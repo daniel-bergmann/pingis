@@ -74,7 +74,7 @@ export default function Home({
         })}
       </ul>
       <LoadMore>
-        <button onClick={handleLoadMore}>Load More Illustrations</button>
+        <button onClick={handleLoadMore}>Load More</button>
       </LoadMore>
       <Middle />
     </>

@@ -13,11 +13,13 @@ export default function about() {
       </Head>
       <Container>
         <Half>
-          <h1>Table Tennis Illustrations - Buy Prints</h1>
+          <h1>pingis - Buy Prints</h1>
 
           <p>
             If you want to buy prints in full image size and without the
-            watermark please contact site creator at danielbergmann@hi.is.
+            watermark and financially support the project please contact site
+            creator at danielbergmann@hi.is. All profit goes into keeping the
+            valuable historic online.
           </p>
         </Half>
         <Half>

@@ -8,21 +8,18 @@ export default function about() {
   return (
     <>
       <Head>
-        <title>Table Tennis Illustration</title>
-        <meta
-          name='description'
-          content='Table Tennis illustrations from Iceland.'
-        />
+        <title>pingis.is - about</title>
+        <meta name='description' content='Table Tennis in Iceland.' />
       </Head>
       <Container>
         <Half>
-          <h1>Table Tennis Illustrations - History archive</h1>
+          <h1>pingis - A History Archive</h1>
           <p>
             This project was created to archive Icelandic table tennis history
             through digital media and share with everybody. Here you should find
             photos, old and new from Icelandic table tennis tournaments, trips
-            and club activities. You can also buy individual prints in full size
-            without the tti.is watermark.
+            and club activities. You can also support the project by buying
+            individual prints in full size.
           </p>
           <p>
             Anyone can participate and contribute to the project. If you want to
