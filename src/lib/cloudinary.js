@@ -12,7 +12,7 @@ export async function search(options = {}) {
     .map((key) => `${key}=${encodeURIComponent(params[key])}`)
     .join('&');
   const results = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/search?${paramString}`,
+    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image?${paramString}`,
     {
       headers: {
         Authorization: `Basic ${Buffer.from(
