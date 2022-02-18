@@ -23,8 +23,7 @@ export default function about() {
           </p>
           <p>
             Anyone can participate and contribute to the project. If you want to
-            contribute or add content, please contact site creator at
-            danielbergmann@hi.is.
+            contribute please contact site creator at danielbergmann@hi.is.
           </p>
         </Half>
         <Half>

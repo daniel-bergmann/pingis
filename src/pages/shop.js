@@ -16,10 +16,9 @@ export default function about() {
           <h1>pingis - Buy Prints</h1>
 
           <p>
-            If you want to buy prints in full image size and without the
-            watermark and financially support the project please contact site
-            creator at danielbergmann@hi.is. All profit goes into keeping the
-            valuable historic online.
+            If you want to buy prints in full image size without the
+            watermark to financially support the project please contact site
+            creator at danielbergmann@hi.is.
           </p>
         </Half>
         <Half>
