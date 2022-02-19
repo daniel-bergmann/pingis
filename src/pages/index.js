@@ -39,11 +39,11 @@ export default function Home({
   return (
     <>
       <Head>
-        <title>pingis.is - home</title>
+        <title>pingis.is</title>
         <meta name='description' content='Table Tennis images from Iceland.' />
       </Head>
       {/* The hero image */}
-      <Hero />
+      {/* <Hero /> */}
       {/* Table tennis paddles */}
       <Middle />
 
@@ -120,7 +120,7 @@ const Container = styled.div`
     }
     &:hover {
       cursor: pointer;
-      opacity: 0.8;
+      opacity: 0.9;
       transition: all 0.5s ease-in-out;
     }
   }

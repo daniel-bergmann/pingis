@@ -13,17 +13,13 @@ export default function about() {
       </Head>
       <Container>
         <Half>
-          <h1>pingis - A History Archive</h1>
+          <h1>A History Archive</h1>
           <p>
-            This project was created to archive Icelandic table tennis history
-            through digital media and share with everybody. Here you should find
-            photos, old and new from Icelandic table tennis tournaments, trips
-            and club activities. You can also support the project by buying
-            individual prints in full size.
-          </p>
-          <p>
-            Anyone can participate and contribute to the project. If you want to
-            contribute please contact site creator at danielbergmann@hi.is.
+            This project was created to document Icelandic table tennis history
+            through digital media. Here you should find photos, old and new from
+            Icelandic table tennis tournaments, trips and club activities. You
+            can also support the project by buying individual prints in full
+            size.
           </p>
         </Half>
         <Half>

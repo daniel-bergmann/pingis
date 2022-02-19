@@ -24,11 +24,12 @@ export default function navbar() {
   );
 }
 
-const Container = styled.header`
+const Container = styled.nav`
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 50% auto;
+  margin: 30px 0;
   .logo {
     cursor: pointer;
   }

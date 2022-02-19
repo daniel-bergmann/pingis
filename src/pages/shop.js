@@ -13,7 +13,7 @@ export default function about() {
       </Head>
       <Container>
         <Half>
-          <h1>pingis - Buy Prints</h1>
+          <h1>Buy Prints</h1>
 
           <p>
             If you want to buy prints in full image size without the watermark

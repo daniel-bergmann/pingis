@@ -9,14 +9,14 @@ import whiteball from '../../public/images/whiteball.svg';
 export default function middle() {
   return (
     <Container>
-      <Upper>
-        <Image src={whiteball} alt='tti Hero' />
-        <Image src={whiteBat} alt='tti Hero' />
-      </Upper>
       <Lower>
         <Image src={blackBat} alt='tti Hero' />
         <Image src={blackball} alt='tti Hero' />
       </Lower>
+      <Upper>
+        <Image src={whiteball} alt='tti Hero' />
+        <Image src={whiteBat} alt='tti Hero' />
+      </Upper>
     </Container>
   );
 }
