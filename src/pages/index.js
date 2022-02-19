@@ -103,7 +103,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 60px 0;
+  margin: 60px 0 0 0;
   h3 {
     text-align: center;
   }
@@ -116,7 +116,7 @@ const Container = styled.div`
   }
   @media (min-width: 768px) {
     .img {
-      max-width: 800px;
+      max-width: 900px;
     }
     &:hover {
       cursor: pointer;

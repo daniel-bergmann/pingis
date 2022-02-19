@@ -22,7 +22,9 @@ export default function about() {
           </p>
         </Half>
         <Half>
-          <Image src={herologo} alt='tti Hero' />
+          <div className='herologo'>
+            <Image src={herologo} alt='tti Hero' />
+          </div>
         </Half>
       </Container>
     </>
