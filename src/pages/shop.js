@@ -8,7 +8,7 @@ export default function about() {
   return (
     <>
       <Head>
-        <title>pingis.is - buy</title>
+        <title>pingis.is - shop</title>
         <meta name='description' content='Table Tennis images from Iceland.' />
       </Head>
       <Container>
@@ -16,9 +16,9 @@ export default function about() {
           <h1>pingis - Buy Prints</h1>
 
           <p>
-            If you want to buy prints in full image size without the
-            watermark to financially support the project please contact site
-            creator at danielbergmann@hi.is.
+            If you want to buy prints in full image size without the watermark
+            to financially support the project please contact site creator at
+            danielbergmann@hi.is.
           </p>
         </Half>
         <Half>

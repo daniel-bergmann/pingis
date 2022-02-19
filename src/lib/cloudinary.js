@@ -12,7 +12,8 @@ export async function search(options = {}) {
     .map((key) => `${key}=${encodeURIComponent(params[key])}`)
     .join('&');
   const results = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image?${paramString}`,
+    // to change the direction of the results I used the parameter, direction.
+    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image?direction?${paramString}`,
     {
       headers: {
         Authorization: `Basic ${Buffer.from(
