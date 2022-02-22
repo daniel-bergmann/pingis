@@ -17,8 +17,7 @@ export default function about() {
 
           <p>
             If you want to buy prints in full image size without the watermark
-            to financially support the project please contact site creator at
-            danielbergmann@hi.is.
+            please contact admin at danielbergmann@hi.is.
           </p>
         </Half>
         <Half>
@@ -41,20 +40,18 @@ const Container = styled.header`
     margin: 10px;
   }
   @media (min-width: 768px) {
-    height: 80vh;
+    height: 60vh;
     flex-direction: row;
   }
 `;
 
 const Half = styled.header`
-  @media (min-width: 768px) {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    p {
-      width: 80%;
-    }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    width: 80%;
   }
 `;

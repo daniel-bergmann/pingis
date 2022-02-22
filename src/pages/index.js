@@ -120,7 +120,6 @@ const Container = styled.div`
     }
     &:hover {
       cursor: pointer;
-      opacity: 0.9;
       transition: all 0.5s ease-in-out;
     }
   }

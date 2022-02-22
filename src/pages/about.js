@@ -15,7 +15,7 @@ export default function about() {
         <Half>
           <h1>A History Archive</h1>
           <p>
-            This project was created to document Icelandic table tennis history
+            This project was created to document Icelandic table tennis culture
             through digital media. Here you should find photos, old and new from
             Icelandic table tennis tournaments, trips and club activities. You
             can also support the project by buying individual prints in full
@@ -42,20 +42,18 @@ const Container = styled.header`
     margin: 10px;
   }
   @media (min-width: 768px) {
-    height: 80vh;
+    height: 60vh;
     flex-direction: row;
   }
 `;
 
 const Half = styled.header`
-  @media (min-width: 768px) {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    p {
-      width: 80%;
-    }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    width: 80%;
   }
 `;
