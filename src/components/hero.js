@@ -20,10 +20,12 @@ const Container = styled.header`
   }
   display: flex;
   flex-direction: column;
-  height: 50vh;
-  width: 100% auto;
+  
+  margin: 50px auto;
+  width: 90%;
   @media (min-width: 768px) {
-    height: 100vh;
+    width: 80%;
+    margin: 100px auto;
     flex-direction: row;
   }
 `;

@@ -43,9 +43,7 @@ export default function Home({
         <meta name='description' content='Table Tennis images from Iceland.' />
       </Head>
       {/* The hero image */}
-      {/* <Hero /> */}
-      {/* Table tennis paddles */}
-      <Middle />
+      <Hero />
 
       <ul>
         {images.map((image) => {
