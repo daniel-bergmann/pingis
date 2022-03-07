@@ -11,6 +11,7 @@ export default function middle() {
           <span dangerouslySetInnerHTML={{ __html: '&copy;' }} />
           {' ' + date + ' ' + 'pingis.is.'}
         </p>
+        
       </Content>
     </Container>
   );
