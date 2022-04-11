@@ -1,6 +1,6 @@
 # [pingis.is](https://pingis.is/)
 
-## License
+### License
 [MIT](https://choosealicense.com/licenses/mit/)
 
 
