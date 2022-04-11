@@ -12,10 +12,10 @@ Everyone is welcome to use the tool and contribute to the project.
 
 The App is developed with NextJS, Cloudinary, SASS and Styled Components.
 
-## Contributing
+### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Installation
+### Installation
 
 Yarn:
 
