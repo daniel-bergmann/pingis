@@ -24,6 +24,9 @@ export default function navbar() {
   );
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
 const Container = styled.nav`
   display: flex;
   justify-content: space-around;

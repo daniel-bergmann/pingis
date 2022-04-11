@@ -8,14 +8,18 @@ export default function middle() {
       <Content>
         <p>
           {' '}
+          {/* using DSIHTML to insert the copyright symbol */}
           <span dangerouslySetInnerHTML={{ __html: '&copy;' }} />
           {' ' + date + ' ' + 'pingis.is.'}
         </p>
-        
       </Content>
     </Container>
   );
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
 const Container = styled.header`
   height: 10vh;
   @media (min-width: 768px) {

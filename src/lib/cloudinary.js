@@ -1,8 +1,12 @@
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Fetching individual photos as the project is pretty new
+
 export async function search(options = {}) {
+  // spreading options from params
   const params = {
     ...options,
   };
-
+  // the next cursor is used to send a new request to the server
   if (options.nextCursor) {
     params.next_cursor = options.nextCursor;
     delete params.nextCursor;
@@ -28,33 +32,36 @@ export async function search(options = {}) {
   return results;
 }
 
-export async function getFolders(options = {}) {
-  const results = await fetch(
-    `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/folders`,
-    {
-      headers: {
-        Authorization: `Basic ${Buffer.from(
-          process.env.CLOUDINARY_API_KEY +
-            ':' +
-            process.env.CLOUDINARY_API_SECRET
-        ).toString('base64')}`,
-      },
-    }
-  ).then((r) => r.json());
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Fetching folders for when the app will be scaled later
 
-  return results;
-}
+// export async function getFolders(options = {}) {
+//   const results = await fetch(
+//     `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/folders`,
+//     {
+//       headers: {
+//         Authorization: `Basic ${Buffer.from(
+//           process.env.CLOUDINARY_API_KEY +
+//             ':' +
+//             process.env.CLOUDINARY_API_SECRET
+//         ).toString('base64')}`,
+//       },
+//     }
+//   ).then((r) => r.json());
 
-export function mapImageResources(resources) {
-  return resources.map((resource) => {
-    // destructuring height and width straight from resource
-    const { width, height } = resource;
-    return {
-      id: resource.asset_id,
-      title: resource.public_id,
-      image: resource.secure_url,
-      width,
-      height,
-    };
-  });
-}
+//   return results;
+// }
+
+// export function mapImageResources(resources) {
+//   return resources.map((resource) => {
+//     // destructuring height and width straight from resource
+//     const { width, height } = resource;
+//     return {
+//       id: resource.asset_id,
+//       title: resource.public_id,
+//       image: resource.secure_url,
+//       width,
+//       height,
+//     };
+//   });
+// }

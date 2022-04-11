@@ -1,3 +1,5 @@
+// I added this file to make the styled-components work with NEXT.js
+
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 class MyDocument extends Document {

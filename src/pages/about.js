@@ -31,6 +31,13 @@ export default function about() {
     </>
   );
 }
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
+
+// The wrapper
 const Container = styled.header`
   display: flex;
   flex-direction: column;
@@ -47,6 +54,7 @@ const Container = styled.header`
   }
 `;
 
+// the screen is split in 2 halfs with the content
 const Half = styled.header`
   width: 100%;
   display: flex;

@@ -29,6 +29,11 @@ export default function about() {
     </>
   );
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
+// wrapper
 const Container = styled.header`
   display: flex;
   flex-direction: column;
@@ -45,6 +50,7 @@ const Container = styled.header`
   }
 `;
 
+// the page is split in 2 parts
 const Half = styled.header`
   width: 100%;
   display: flex;

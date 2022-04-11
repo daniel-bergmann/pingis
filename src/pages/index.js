@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import uuid from 'react-uuid';
+import { search, mapImageResources } from '../lib/cloudinary';
+
+// +++++++++++++++++++++++++++++++++++++++++
+// components
 import Middle from '../components/middle';
 import Hero from '../components/hero';
 
-import { search, mapImageResources } from '../lib/cloudinary';
 
 // renaming props because of useState conflict and to keep code nice and clean
 export default function Home({
@@ -17,22 +20,32 @@ export default function Home({
   const [images, setImages] = useState(defaultImages);
   const [nextCursor, setNextCursor] = useState(defaultNextCursor);
 
+
+  // ++++++++++++++++++++++++++++++++++++++++++++++++
+ // function to send more requests to the server 
   async function handleLoadMore(e) {
+    // preventing the default behaviour of the DOM
     e.preventDefault();
+
+    // Sending a HTTP POST request to the backend wich in turn calls the lib file containing Cloudinary details
     const results = await fetch('/api/search', {
       method: 'POST',
       body: JSON.stringify({
         nextCursor,
       }),
     }).then((r) => r.json());
+
+    // pulling in the resources from the API and the NextCursor for load more functionality
     const { resources, next_cursor: updatedNextCursor } = results;
 
     const images = mapImageResources(resources);
 
+    // When the request is triggered we still want to keep the images that have already been sent
     setImages((prev) => {
       return [...prev, ...images];
     });
 
+    // Changing the state
     setNextCursor(updatedNextCursor);
   }
 
@@ -48,6 +61,7 @@ export default function Home({
       <ul>
         {images.map((image) => {
           return (
+            // used the uuid library for unique id
             <li key={uuid()}>
               <a href={image.link} rel='noreferrer'>
                 <Container>
@@ -57,9 +71,10 @@ export default function Home({
                         width={image.width}
                         height={image.height}
                         src={image.image}
-                        alt=''
+                        alt='image from pingis.is'
                       />
                       <div className='text'>
+                        {/* Sliced the title to show the year */}
                         <h3>{image.title.slice(0, 9)}</h3>
                         <p className='buy'>Buy print</p>
                       </div>
@@ -72,6 +87,7 @@ export default function Home({
         })}
       </ul>
       <LoadMore>
+        {/* triggering this makes a new requst to the server adding 10 images below */}
         <button onClick={handleLoadMore}>Load More</button>
       </LoadMore>
       <Middle />
@@ -79,9 +95,13 @@ export default function Home({
   );
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Using the Cloudinary API
+
+
 export async function getStaticProps() {
   const results = await search();
-  // destructuring resources
+  // destructuring resources from API
   const { resources, next_cursor: nextCursor } = results;
 
   const images = await mapImageResources(resources);
@@ -90,11 +110,17 @@ export async function getStaticProps() {
     props: {
       images,
       nextCursor,
+
+      // commented this out in a debugging session
       // : nextCursor || false,
     },
   };
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
+// wrapper
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -124,6 +150,7 @@ const Container = styled.div`
   }
 `;
 
+// the load more button
 const LoadMore = styled.div`
   display: flex;
   flex-direction: column;

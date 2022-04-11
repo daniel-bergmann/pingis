@@ -13,6 +13,9 @@ export default function Header() {
   );
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
 const Container = styled.header`
   h1 {
     padding: 20px;

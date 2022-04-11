@@ -6,6 +6,7 @@ import whiteBat from '../../public/images/whitebat.svg';
 import blackball from '../../public/images/blackball.svg';
 import whiteball from '../../public/images/whiteball.svg';
 
+// Design and SVG made in figma
 export default function middle() {
   return (
     <Container>
@@ -20,6 +21,10 @@ export default function middle() {
     </Container>
   );
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+// Styling
+
 const Container = styled.header`
   height: 100vh;
   @media (min-width: 768px) {
