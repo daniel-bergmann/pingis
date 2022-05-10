@@ -1,23 +1,23 @@
-import React from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
-import logo from 'public/images/logo.svg';
-import Link from 'next/link';
+import React from "react";
+import styled from "styled-components";
+import Image from "next/image";
+import logo from "public/images/logo.svg";
+import Link from "next/link";
 
 export default function navbar() {
   return (
     <Container>
       <ul>
-        <Link href='/shop' passHref>
+        <Link href="/shop" passHref>
           <li>shop</li>
         </Link>
       </ul>
-      <Link href='/' passHref>
-        <Image className='logo' src={logo} alt='tti logo' />
+      <Link href="/" passHref>
+        <Image className="logo" src={logo} alt="tti logo" />
       </Link>
       <ul>
-        <Link href='/about' passHref>
-          <li>about</li>
+        <Link href="/news" passHref>
+          <li>news</li>
         </Link>
       </ul>
     </Container>

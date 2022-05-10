@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 export default function middle() {
   let date = new Date().getFullYear();
@@ -7,10 +7,10 @@ export default function middle() {
     <Container>
       <Content>
         <p>
-          {' '}
+          {" "}
           {/* using DSIHTML to insert the copyright symbol */}
-          <span dangerouslySetInnerHTML={{ __html: '&copy;' }} />
-          {' ' + date + ' ' + 'pingis.is.'}
+          <span dangerouslySetInnerHTML={{ __html: "&copy;" }} />
+          {" " + date + " " + "pingis.is."}
         </p>
       </Content>
     </Container>
@@ -21,7 +21,7 @@ export default function middle() {
 // Styling
 
 const Container = styled.header`
-  height: 10vh;
+  height: 5vh;
   @media (min-width: 768px) {
   }
 `;

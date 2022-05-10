@@ -1,15 +1,15 @@
-import React from 'react';
-import Head from 'next/head';
-import styled from 'styled-components';
-import Image from 'next/image';
-import herologo from 'public/images/hero-logo.svg';
+import React from "react";
+import Head from "next/head";
+import styled from "styled-components";
+import Image from "next/image";
+import herologo from "public/images/hero-logo.svg";
 
 export default function about() {
   return (
     <>
       <Head>
-        <title>pingis.is - shop</title>
-        <meta name='description' content='Table Tennis images from Iceland.' />
+        <title>pingis.is</title>
+        <meta name="description" content="Table Tennis images from Iceland." />
       </Head>
       <Container>
         <Half>
@@ -17,12 +17,12 @@ export default function about() {
 
           <p>
             If you want to buy prints in full image size without the watermark
-            please contact admin at danielbergmann@hi.is.
+            please contact webmaster at danielbergmann@hi.is.
           </p>
         </Half>
         <Half>
-          <div className='herologo'>
-            <Image src={herologo} alt='tti Hero' />
+          <div className="herologo">
+            <Image src={herologo} alt="tti Hero" />
           </div>
         </Half>
       </Container>

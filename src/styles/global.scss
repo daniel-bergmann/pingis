@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,7 +8,7 @@
 
 body {
   color: #333;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 ul {
@@ -22,8 +22,8 @@ p {
 }
 
 button,
-input[type='submit'],
-input[type='reset'] {
+input[type="submit"],
+input[type="reset"] {
   background: none;
   color: inherit;
   border: solid 4px #898989;
@@ -41,4 +41,14 @@ input[type='reset'] {
 
 .herologo {
   width: 60%;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  border-radius: 4px;
 }

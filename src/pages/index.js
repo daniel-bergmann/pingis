@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import styled from 'styled-components';
-import uuid from 'react-uuid';
-import { search, mapImageResources } from '../lib/cloudinary';
+import { useState } from "react";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import styled from "styled-components";
+import uuid from "react-uuid";
+import { search, mapImageResources } from "../lib/cloudinary";
 
 // +++++++++++++++++++++++++++++++++++++++++
 // components
-import Middle from '../components/middle';
-import Hero from '../components/hero';
-
+import BatAndBall from "../components/batAndBall";
+import Hero from "../components/hero";
 
 // renaming props because of useState conflict and to keep code nice and clean
 export default function Home({
@@ -20,16 +19,15 @@ export default function Home({
   const [images, setImages] = useState(defaultImages);
   const [nextCursor, setNextCursor] = useState(defaultNextCursor);
 
-
   // ++++++++++++++++++++++++++++++++++++++++++++++++
- // function to send more requests to the server 
+  // function to send more requests to the server
   async function handleLoadMore(e) {
     // preventing the default behaviour of the DOM
     e.preventDefault();
 
     // Sending a HTTP POST request to the backend wich in turn calls the lib file containing Cloudinary details
-    const results = await fetch('/api/search', {
-      method: 'POST',
+    const results = await fetch("/api/search", {
+      method: "POST",
       body: JSON.stringify({
         nextCursor,
       }),
@@ -53,7 +51,7 @@ export default function Home({
     <>
       <Head>
         <title>pingis.is</title>
-        <meta name='description' content='Table Tennis images from Iceland.' />
+        <meta name="description" content="Table Tennis images from Iceland." />
       </Head>
       {/* The hero image */}
       <Hero />
@@ -63,23 +61,23 @@ export default function Home({
           return (
             // used the uuid library for unique id
             <li key={uuid()}>
-              <a href={image.link} rel='noreferrer'>
+              <a href={image.link} rel="noreferrer">
                 <Container>
-                  <Link href='/shop' passHref>
-                    <div className='img'>
-                      <Image
-                        width={image.width}
-                        height={image.height}
-                        src={image.image}
-                        alt='image from pingis.is'
-                      />
-                      <div className='text'>
-                        {/* Sliced the title to show the year */}
-                        <h3>{image.title.slice(0, 9)}</h3>
-                        <p className='buy'>Buy print</p>
-                      </div>
+                  <div className="img">
+                    <Image
+                      width={image.width}
+                      height={image.height}
+                      src={image.image}
+                      alt="image from pingis.is"
+                    />
+                    <div className="text">
+                      {/* Sliced the title to show the year */}
+                      <h3>{image.title.slice(0, 9)}</h3>
+                      <Link href="/shop" passHref>
+                        <p className="buy">Buy print</p>
+                      </Link>
                     </div>
-                  </Link>
+                  </div>
                 </Container>
               </a>
             </li>
@@ -90,14 +88,13 @@ export default function Home({
         {/* triggering this makes a new requst to the server adding 10 images below */}
         <button onClick={handleLoadMore}>Load More</button>
       </LoadMore>
-      <Middle />
+      <BatAndBall />
     </>
   );
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 // Using the Cloudinary API
-
 
 export async function getStaticProps() {
   const results = await search();
@@ -131,6 +128,12 @@ const Container = styled.div`
   h3 {
     text-align: center;
   }
+  .buy {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .img {
     .text {
       display: flex;
@@ -141,11 +144,6 @@ const Container = styled.div`
   @media (min-width: 768px) {
     .img {
       max-width: 900px;
-    }
-    &:hover {
-      cursor: pointer;
-      // opacity: 0.9;
-      transition: all 0.5s ease-in-out;
     }
   }
 `;
