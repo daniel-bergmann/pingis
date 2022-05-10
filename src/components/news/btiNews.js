@@ -7,8 +7,8 @@ export default function bti({ data }) {
       <h2>Iceland</h2>
       {data.map((i) => {
         return (
-          <ApiData>
-            <a href={`${i.link}`} target="_blank" passHref>
+          <ApiData key={i.title}>
+            <a href={`${i.link}`} target="_blank" rel="noreferrer" passHref>
               <Image
                 className="img"
                 src={`${i.pic}`}
@@ -18,12 +18,12 @@ export default function bti({ data }) {
               />
             </a>
             <div className="newsText">
-              <a href={`${i.link}`} target="_blank" passHref>
+              <a href={`${i.link}`} target="_blank" rel="noreferrer" passHref>
                 <h3>{i.title.slice(0, -7)}</h3>
               </a>
               <p>
                 {i.about}
-                <a href={`${i.link}`} target="_blank" passHref>
+                <a href={`${i.link}`} target="_blank" rel="noreferrer" passHref>
                   {" "}
                   <strong className="bold">Read Full Article</strong>
                 </a>
