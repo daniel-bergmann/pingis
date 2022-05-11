@@ -82,15 +82,14 @@ const ApiData = styled.div`
   }
   @media (min-width: 768px) {
     flex-direction: row;
+    margin: 20px;
+    &:hover {
+      background-color: #f0f0f0;
+      border-radius: 4px;
+      transition: ease-in-out 0.3s;
+    }
 
     .newsText {
-      margin: 50px;
-      h3,
-      h4,
-      p {
-        margin: 0px 40px;
-      }
-
       max-width: 450px;
     }
   }
