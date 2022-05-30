@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import styled from "styled-components";
 
-export default function ittfNews({ ittfData, btiData }) {
-  const [view, setView] = useState(false);
+export default function News({ ittfData, btiData }) {
   return (
     <>
       <Container>
@@ -63,7 +61,7 @@ const Container = styled.div`
       h3 {
         font-weight: 100;
       }
-    } 
+    }
   }
   @media (min-width: 768px) {
     h2 {
