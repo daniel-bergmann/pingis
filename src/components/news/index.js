@@ -8,7 +8,7 @@ export default function News({ ittfData, btiData }) {
         {ittfData.map((i) => {
           return (
             <div>
-              <a key={i.id} href={i.link} target="_blank">
+              <a key={i.id} href={i.link} target="_blank" rel="noreferrer">
                 <h3>{i.title.rendered}</h3>
                 {/* <div dangerouslySetInnerHTML={{ __html: i.content.rendered }} /> */}
               </a>
@@ -22,7 +22,7 @@ export default function News({ ittfData, btiData }) {
         {btiData.map((i) => {
           return (
             <div>
-              <a key={i.id} href={i.link} target="_blank">
+              <a key={i.id} href={i.link} target="_blank" rel="noreferrer">
                 <h3>{i.title.rendered}</h3>
                 {/* <div dangerouslySetInnerHTML={{ __html: i.content.rendered }} /> */}
               </a>
