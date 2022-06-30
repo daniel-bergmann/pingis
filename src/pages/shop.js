@@ -3,6 +3,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import Image from "next/image";
 import herologo from "public/images/hero-logo.svg";
+import BatandBall from '../components/batAndBall'
 
 export default function about() {
   return (
@@ -16,8 +17,9 @@ export default function about() {
           <h1>Buy Prints</h1>
 
           <p>
-            If you want to buy prints in full image size without the watermark
-            please contact webmaster at danielbergmann@hi.is.
+            If you want to support the project by buying prints in full image
+            size without the watermark please contact webmaster at
+            danielbergmann@hi.is.
           </p>
         </Half>
         <Half>
@@ -26,6 +28,7 @@ export default function about() {
           </div>
         </Half>
       </Container>
+      <BatandBall/>
     </>
   );
 }

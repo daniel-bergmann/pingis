@@ -21,7 +21,6 @@ export default function button({ handleLoadMore }) {
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 // Styling
 
-// the load more button
 const ButtonStyling = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +38,7 @@ const ButtonStyling = styled.div`
       width: 160px;
     }
     &:hover {
-      opacity: 0.8;
+      opacity: 0.9;
       /* Start the shake animation and make the animation last for 0.5 seconds */
       animation: shake 0.5s;
 

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-// server holds the link to the host
-// import { server } from "../../config/index";
+import BatandBall from "../../components/batAndBall";
 
 // Components
 import News from "@components/news";
@@ -21,6 +20,7 @@ export default function news({ btiData, ittfData }) {
         <h1>Latest Table Tennis News from Around the World</h1>
         <News btiData={btiData} ittfData={ittfData} />
       </Container>
+      <BatandBall />
     </>
   );
 }
