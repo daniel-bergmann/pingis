@@ -1,40 +1,65 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 
 export default function News({ ittfData, btiData }) {
+  const [showContent, setShowContent] = useState(false);
   return (
     <>
       <Container>
-        <h2>BTÍ - Iceland</h2>
+        <h1>BTÍ - Iceland</h1>
         {btiData.map((i) => {
           return (
             <div key={i.id}>
-              <a href={i.link} target="_blank" rel="noreferrer">
-                <h3>{i.title.rendered}</h3>
-              </a>
-              <h4>{i.date.slice(0, 10)}</h4>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: i.content.rendered,
-                }}
-              />
+              <h2>{i.title.rendered}</h2>
+              <span className="date">{i.date.slice(0, 10)}</span>
+              
+              {!showContent ? (
+                <>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: i.content.rendered.slice(1, 150),
+                    }}
+                  />...
+                  <a onClick={() => setShowContent(!showContent)}>read article</a>
+                  
+                </>
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: i.content.rendered,
+                  }}
+                />
+              )}
             </div>
           );
         })}
       </Container>
       <Container>
-        <h2>ITTF - International</h2>
+        <h1>ITTF - International</h1>
         {ittfData.map((i) => {
           return (
             <div key={i.id}>
-              <a href={i.link} target="_blank" rel="noreferrer">
-                <h3>{i.title.rendered}</h3>
-              </a>
-              <h4>{i.date.slice(0, 10)}</h4>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: i.content.rendered.slice(3),
-                }}
-              />
+              <h2>{i.title.rendered}</h2>
+              <span className="date">{i.date.slice(0, 10)}</span>
+              {!showContent ? (
+                <>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: i.content.rendered.slice(3, 150),
+                    }}
+                  />
+                  ...
+                  <a onClick={() => setShowContent(!showContent)}>
+                    read article
+                  </a>
+                </>
+              ) : (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: i.content.rendered,
+                  }}
+                />
+              )}
             </div>
           );
         })}
@@ -65,23 +90,27 @@ const Container = styled.div`
     height: 100%;
     width: 100%;
   }
-  table {
+  /* table {
     display: none;
-  }
-
-  h2 {
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  h4 {
-    padding: 5px 0 5px 0;
-  }
+  } */
 
   div {
-    padding-bottom: 20px;
+    h2 {
+      font-weight: bold;
+      color: #005a80;
+      padding-top: 50px;
+    }
+    a {
+      text-decoration: underline;
+    }
+
+    .date {
+      opacity: 0.5;
+    }
+
     p {
       font-size: 16px;
-      padding: 5px 0;
+      padding: 8px 0;
     }
 
     a {
@@ -95,9 +124,6 @@ const Container = styled.div`
     }
   }
   @media (min-width: 768px) {
-    h2 {
-      margin: 20px 30%;
-    }
     div {
       max-width: 600px;
       margin: 0 auto;
