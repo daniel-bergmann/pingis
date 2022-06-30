@@ -6,22 +6,24 @@ export default function News({ ittfData, btiData }) {
   return (
     <>
       <Container>
-        <h1>BTÍ - Iceland</h1>
+        <h1>Iceland</h1>
         {btiData.map((i) => {
           return (
             <div key={i.id}>
               <h2>{i.title.rendered}</h2>
               <span className="date">{i.date.slice(0, 10)}</span>
-              
+
               {!showContent ? (
                 <>
                   <div
                     dangerouslySetInnerHTML={{
                       __html: i.content.rendered.slice(1, 150),
                     }}
-                  />...
-                  <a onClick={() => setShowContent(!showContent)}>read article</a>
-                  
+                  />
+                  ...
+                  <a onClick={() => setShowContent(!showContent)}>
+                    read article
+                  </a>
                 </>
               ) : (
                 <div
@@ -35,7 +37,7 @@ export default function News({ ittfData, btiData }) {
         })}
       </Container>
       <Container>
-        <h1>ITTF - International</h1>
+        <h1>International</h1>
         {ittfData.map((i) => {
           return (
             <div key={i.id}>
