@@ -1,3 +1,5 @@
+import RenderedSlug from "@components/news/RenderedSlug";
+
 export const getStaticPaths = async () => {
   const res = await fetch(process.env.BTI_API);
   const data = await res.json();
@@ -27,14 +29,10 @@ export const getStaticProps = async (context) => {
 export default function Details({ data }) {
   console.log(data);
   return (
-    <div>
-      {data.map((i) => {
-        return (
-          <div key={i.id}>
-            <h1>{i.title.rendered}</h1>
-          </div>
-        );
+    <>
+      {data.map((content) => {
+        return <RenderedSlug content={content} key={content.id} />;
       })}
-    </div>
+    </>
   );
 }

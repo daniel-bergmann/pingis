@@ -11,6 +11,13 @@
   color: white;
 }
 
+main {
+  // keeping the footer stuck to bottom
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   color: #333;
   font-family: "Poppins", sans-serif;
@@ -24,6 +31,7 @@ ul {
 
 p {
   font-size: 20px;
+  padding: 10px 0;
 }
 
 button,
@@ -46,6 +54,9 @@ a {
   text-decoration: inherit;
   color: inherit;
   cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 img {
