@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import BatandBall from "../../components/batAndBall";
@@ -9,7 +10,7 @@ import News from "@components/news";
 // Rendering root page component
 // +++++++++++++
 
-export default function news({ btiData, ittfData }) {
+export default function news({ ittfData, btiData }) {
   return (
     <>
       <Head>
@@ -29,14 +30,14 @@ export default function news({ btiData, ittfData }) {
 // Fetching Data
 // +++++++++++++
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   // response
   const btiRes = await fetch(process.env.BTI_API);
   const ittfRes = await fetch(process.env.ITTF_API);
-
-  // returning the json
   const btiData = await btiRes.json();
   const ittfData = await ittfRes.json();
+
+  // returning the json
   if (!btiData || !ittfData) {
     return {
       notFound: true,
@@ -45,7 +46,7 @@ export async function getServerSideProps() {
 
   return {
     // will be passed to the page component as props
-    props: { btiData, ittfData },
+    props: { ittfData, btiData },
   };
 }
 

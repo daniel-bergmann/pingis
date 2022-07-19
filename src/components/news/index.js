@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Link from "next/link";
 
 export default function News({ ittfData, btiData }) {
   const [showContent, setShowContent] = useState(false);
+
   return (
     <>
       <Container>
@@ -10,7 +12,10 @@ export default function News({ ittfData, btiData }) {
         {btiData.map((i) => {
           return (
             <div key={i.id}>
-              <h2>{i.title.rendered}</h2>
+              <Link href={"/news/" + i.slug} alt={i.title.rendered} passHref>
+                <h2>{i.title.rendered}</h2>
+              </Link>
+
               <span className="date">{i.date.slice(0, 10)}</span>
 
               {!showContent ? (
