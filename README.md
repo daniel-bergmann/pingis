@@ -28,7 +28,7 @@ to start the development server:
 yarn start
 ```
 
-NPM:
+NPM :
 
 to install depedencies
 ```bash
