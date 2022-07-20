@@ -28,7 +28,8 @@ const ButtonStyling = styled.div`
   display: flex;
   align-items: flex-start;
   button {
-    width: 50px;
+    width: 30px;
+    opacity: 0.5;
   }
   @media (min-width: 768px) {
   }
