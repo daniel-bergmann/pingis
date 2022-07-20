@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { GrLinkTop } from "react-icons";
+
 
 const ScrollToTop = () => {
   const [showTopBtn, setShowTopBtn] = useState(false);
