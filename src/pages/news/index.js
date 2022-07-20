@@ -1,14 +1,9 @@
-import React, { useState } from "react";
 import Head from "next/head";
 import styled from "styled-components";
-import BatandBall from "../../components/batAndBall";
 
 // Components
 import News from "@components/news";
 
-// ----------------
-// Rendering root page component
-// +++++++++++++
 
 export default function news({ ittfData, btiData }) {
   return (
@@ -21,7 +16,6 @@ export default function news({ ittfData, btiData }) {
         <h1>Latest Table Tennis News from Around the World</h1>
         <News btiData={btiData} ittfData={ittfData} />
       </Container>
-      <BatandBall />
     </>
   );
 }

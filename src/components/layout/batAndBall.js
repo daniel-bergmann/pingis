@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import Image from 'next/image';
-import blackBat from '../../public/images/blackbat.svg';
-import whiteBat from '../../public/images/whitebat.svg';
-import blackball from '../../public/images/blackball.svg';
-import whiteball from '../../public/images/whiteball.svg';
+import blackBat from "../../../public/images/blackbat.svg";
+import whiteBat from "../../../public/images/whitebat.svg";
+import blackball from "../../../public/images/blackball.svg";
+import whiteball from "../../../public/images/whiteball.svg";
 
 // Design and SVG made in figma
 export default function middle() {

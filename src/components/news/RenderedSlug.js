@@ -1,3 +1,4 @@
+import ReturnButton from "@components/buttons/returnButton";
 import styled from "styled-components";
 
 // ++++++++++++++++++++++++
@@ -7,6 +8,7 @@ import styled from "styled-components";
 export default function RenderedSlug({ content }) {
   return (
     <Container>
+      <ReturnButton />
       <h1>{content.title.rendered}</h1>
       <span className="date">{content.date.slice(0, 10)}</span>
       <div
@@ -35,8 +37,8 @@ const Container = styled.div`
     margin: 10px 0;
   }
   h1 {
-    color: #005a80;
-    padding-top: 50px;
+    color: #333;
+    padding-top: 20px;
   }
 
   .date {

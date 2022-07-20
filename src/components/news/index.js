@@ -25,8 +25,7 @@ export default function News({ ittfData, btiData }) {
             </div>
           );
         })}
-      </Container>
-      <Container>
+
         <h1>International</h1>
         {ittfData.map((i) => {
           return (
@@ -74,13 +73,16 @@ const Container = styled.div`
     margin: 10px 0;
   }
   h2 {
-    color: #005a80;
+    color: #333;
     padding-top: 50px;
     font-weight: bold;
     &:hover {
       text-decoration: underline;
       cursor: pointer;
     }
+  }
+  p {
+    font-size: 16px;
   }
 
   .date {

@@ -1,5 +1,5 @@
 // ++++++++++++++++++++++++++++++++++++++++++++++++
-// Fetching individual photos as the project is pretty new
+// Fetching individual photos
 
 export async function search(options = {}) {
   // spreading options from params

@@ -3,7 +3,11 @@ import Head from "next/head";
 import styled from "styled-components";
 import Image from "next/image";
 import herologo from "public/images/hero-logo.svg";
-import BatandBall from '../components/batAndBall'
+
+
+// ----------------
+// this page will be updated into a ecommerce page later
+// +++++++++++++
 
 export default function about() {
   return (
@@ -28,7 +32,6 @@ export default function about() {
           </div>
         </Half>
       </Container>
-      <BatandBall/>
     </>
   );
 }

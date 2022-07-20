@@ -1,8 +1,8 @@
 import Image from "next/image";
 import styled from "styled-components";
-import LoadMoreImage from "../../public/images/loadmore.svg";
+import LoadMoreImage from "../../../public/images/loadmore.svg";
 
-export default function button({ handleLoadMore }) {
+export default function LoadMoreButton({ handleLoadMore }) {
   return (
     <ButtonStyling>
       {/* triggering this makes a new requst to the server adding 10 images below */}
@@ -36,24 +36,6 @@ const ButtonStyling = styled.div`
     button {
       height: 80px;
       width: 160px;
-    }
-    &:hover {
-      opacity: 0.9;
-      /* Start the shake animation and make the animation last for 0.5 seconds */
-      animation: shake 0.5s;
-
-      /* When the animation is finished, start again */
-      animation-iteration-count: 0.2s;
-    }
-
-    @keyframes shake {
-      0% {
-        transform: translate(1px, 1px) rotate(0deg);
-      }
-
-      30% {
-        transform: translate(3px, 2px) rotate(0deg);
-      }
     }
   }
 `;

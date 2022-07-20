@@ -4,10 +4,9 @@ import { search, mapImageResources } from "../lib/cloudinary";
 
 // +++++++++++++++++++++++++++++++++++++++++
 // components
-import BatAndBall from "../components/batAndBall";
 import Hero from "../components/hero";
 import Images from "@components/images";
-import Button from "@components/button";
+import LoadMoreButton from "@components/buttons/loadMoreButton";
 
 // renaming props because of useState conflict and to keep code nice and clean
 export default function Home({
@@ -49,16 +48,14 @@ export default function Home({
     <>
       <Head>
         <title>pingis.is</title>
-        <meta name="description" content="Table Tennis images from Iceland." />
+        <meta name="description" content="Table Tennis" />
       </Head>
       {/* The hero image */}
       <Hero />
       {/* photography */}
       <Images images={images} />
-      {/* Click button to requset more images */}
-      <Button handleLoadMore={handleLoadMore} />
-      {/* footer decoration */}
-      <BatAndBall />
+      {/* Click button to request more images */}
+      <LoadMoreButton handleLoadMore={handleLoadMore} />
     </>
   );
 }
