@@ -1,94 +1,116 @@
 import styled from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
+
+import ThumbImage from "../../../public/images/pingis-thumb.png";
 
 export default function News({ ittfData, btiData, krData, vikingurData }) {
   return (
     <>
+      <h1>Iceland</h1>
+
+      {/* Data coming from BTÍ */}
       <Container>
-        <h1>Iceland</h1>
-
-        {/* Data coming from BTÍ */}
-        {btiData.map((i) => {
+        {btiData.map((item) => {
           return (
-            <div key={i.id}>
-              <Link
-                href={"/news/bti/" + i.slug}
-                alt={i.title.rendered}
-                passHref
-              >
-                <h2>{i.title.rendered}</h2>
-              </Link>
-              <span className="date">{i.date.slice(0, 10)}</span>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: i.content.rendered.slice(1, 100) + "...",
-                }}
-              />
-            </div>
+            <Link
+              key={item.id}
+              href={"/news/bti/" + item.slug}
+              alt={item.title.rendered}
+              passHref
+            >
+              <Item>
+                <Image
+                  width={350}
+                  height={300}
+                  className="img"
+                  src={ThumbImage}
+                  placeholder="blur"
+                />
+                <div>
+                  <h2>{item.title.rendered}</h2>
+                  <span className="date">{item.date.slice(0, 10)}</span>
+                </div>
+              </Item>
+            </Link>
           );
         })}
 
-        {/* Data coming from Víkingur */}
-        {vikingurData.map((i) => {
+        <h1>Víkingur</h1>
+        {vikingurData.map((item) => {
           return (
-            <div key={i.id}>
-              <Link
-                href={"/news/vikingur/" + i.slug}
-                alt={i.title.rendered}
-                passHref
-              >
-                <h2>{i.title.rendered}</h2>
-              </Link>
-              <span className="date">{i.date.slice(0, 10)}</span>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: i.content.rendered.slice(1, 100) + "...",
-                }}
-              />
-            </div>
-          );
-        })}
-        {/* Data coming from KR */}
-        {krData.map((i) => {
-          return (
-            <div key={i.id}>
-              <Link
-                href={"/news/kr/" + i.slug}
-                alt={i.title.rendered}
-                passHref
-              >
-                <h2>{i.title.rendered}</h2>
-              </Link>
-              <span className="date">{i.date.slice(0, 10)}</span>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: i.content.rendered.slice(1, 100) + "...",
-                }}
-              />
-            </div>
+            <Link
+              key={item.id}
+              href={"/news/vikingur/" + item.slug}
+              alt={item.title.rendered}
+              passHref
+            >
+              <Item>
+                <Image
+                  width={350}
+                  height={300}
+                  className="img"
+                  src={ThumbImage}
+                  placeholder="blur"
+                />
+                <div>
+                  <h2>{item.title.rendered}</h2>
+                  <span className="date">{item.date.slice(0, 10)}</span>
+                </div>
+              </Item>
+            </Link>
           );
         })}
 
-        {/* Data coming from ITTF */}
+        <h1>KR</h1>
+        {krData.map((item) => {
+          return (
+            <Link
+              key={item.id}
+              href={"/news/kr/" + item.slug}
+              alt={item.title.rendered}
+              passHref
+            >
+              <Item>
+                <Image
+                  width={350}
+                  height={300}
+                  className="img"
+                  src={ThumbImage}
+                  placeholder="blur"
+                />
+                <div>
+                  <h2>{item.title.rendered}</h2>
+                  <span className="date">{item.date.slice(0, 10)}</span>
+                </div>
+              </Item>
+            </Link>
+          );
+        })}
 
         <h1>International</h1>
-        {ittfData.map((i) => {
+        {ittfData.map((item) => {
           return (
-            <div key={i.id}>
-              <Link
-                href={"/news/ittf/" + i.slug}
-                alt={i.title.rendered}
-                passHref
-              >
-                <h2>{i.title.rendered}</h2>
-              </Link>
-              <span className="date">{i.date.slice(0, 10)}</span>
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: i.content.rendered.slice(3, 100) + "...",
-                }}
-              />
-            </div>
+            <Link
+              key={item.id}
+              href={"/news/ittf/" + item.slug}
+              alt={item.title.rendered}
+              passHref
+            >
+              <Item>
+                <Image
+                  width={350}
+                  height={300}
+                  className="img"
+                  src={ThumbImage}
+                  placeholder="blur"
+                />
+                <div>
+                  <h2>{item.title.rendered}</h2>
+                  <span className="date">{item.date.slice(0, 10)}</span>
+                </div>
+              </Item>
+            </Link>
           );
         })}
       </Container>
@@ -102,8 +124,11 @@ export default function News({ ittfData, btiData, krData, vikingurData }) {
 
 // wrapper
 const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   width: 90%;
-  margin: 0 auto;
+  margin: auto;
   /* hiding trash elements that comes with articles */
   svg {
     display: none;
@@ -111,23 +136,17 @@ const Container = styled.div`
   .pvc_stats {
     display: none;
   }
-  /* make sure the images are the right size */
-  img {
-    height: 100%;
-    width: 100%;
-    margin: 10px 0;
+  div {
+    margin-bottom: 30px;
   }
   h2 {
     color: #333;
-    padding-top: 50px;
     font-weight: bold;
+    padding-top: 3px;
     &:hover {
       text-decoration: underline;
       cursor: pointer;
     }
-  }
-  p {
-    font-size: 16px;
   }
 
   .date {
@@ -135,7 +154,34 @@ const Container = styled.div`
   }
 
   @media (min-width: 768px) {
-    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
     margin: 100px auto;
+  }
+`;
+
+const Item = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    /* max-width: 80%; */
+    &:hover {
+      cursor: pointer;
+      transition: ease-in-out 0.3s;
+      background-color: #f4f4f4;
+      border-radius: 4px;
+      -webkit-box-shadow: 0px 10px 39px -6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0px 10px 39px -6px rgba(0, 0, 0, 0.1);
+      .img {
+        border-radius: 4px 0 0 4px;
+        opacity: 0.9;
+      }
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
   }
 `;
