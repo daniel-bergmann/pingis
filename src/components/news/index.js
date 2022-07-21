@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import Link from "next/link";
 
-export default function News({ ittfData, btiData }) {
+export default function News({ ittfData, btiData, krData, vikingurData }) {
   return (
     <>
       <Container>
         <h1>Iceland</h1>
+
+        {/* Data coming from BTÍ */}
         {btiData.map((i) => {
           return (
             <div key={i.id}>
@@ -25,6 +27,49 @@ export default function News({ ittfData, btiData }) {
             </div>
           );
         })}
+
+        {/* Data coming from Víkingur */}
+        {vikingurData.map((i) => {
+          return (
+            <div key={i.id}>
+              <Link
+                href={"/news/vikingur/" + i.slug}
+                alt={i.title.rendered}
+                passHref
+              >
+                <h2>{i.title.rendered}</h2>
+              </Link>
+              <span className="date">{i.date.slice(0, 10)}</span>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: i.content.rendered.slice(1, 100) + "...",
+                }}
+              />
+            </div>
+          );
+        })}
+        {/* Data coming from KR */}
+        {krData.map((i) => {
+          return (
+            <div key={i.id}>
+              <Link
+                href={"/news/kr/" + i.slug}
+                alt={i.title.rendered}
+                passHref
+              >
+                <h2>{i.title.rendered}</h2>
+              </Link>
+              <span className="date">{i.date.slice(0, 10)}</span>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: i.content.rendered.slice(1, 100) + "...",
+                }}
+              />
+            </div>
+          );
+        })}
+
+        {/* Data coming from ITTF */}
 
         <h1>International</h1>
         {ittfData.map((i) => {

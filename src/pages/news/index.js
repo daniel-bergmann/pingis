@@ -4,8 +4,7 @@ import styled from "styled-components";
 // Components
 import News from "@components/news";
 
-
-export default function news({ ittfData, btiData }) {
+export default function news({ ittfData, btiData, krData, vikingurData }) {
   return (
     <>
       <Head>
@@ -14,7 +13,12 @@ export default function news({ ittfData, btiData }) {
       </Head>
       <Container>
         <h1>Latest Table Tennis News from Around the World</h1>
-        <News btiData={btiData} ittfData={ittfData} />
+        <News
+          btiData={btiData}
+          ittfData={ittfData}
+          krData={krData}
+          vikingurData={vikingurData}
+        />
       </Container>
     </>
   );
@@ -25,11 +29,16 @@ export default function news({ ittfData, btiData }) {
 // +++++++++++++
 
 export async function getStaticProps() {
-  // response
+  // fetching the data
   const btiRes = await fetch(process.env.BTI_API);
   const ittfRes = await fetch(process.env.ITTF_API);
+  const vikingurRes = await fetch('https://vikingur.is/wp-json/wp/v2/posts?categories=25');
+  const krRes = await fetch("https://kr.is/wp-json/wp/v2/posts?categories=3");
+  // getting promise
   const btiData = await btiRes.json();
   const ittfData = await ittfRes.json();
+  const vikingurData = await vikingurRes.json();
+  const krData = await krRes.json();
 
   // returning the json
   if (!btiData || !ittfData) {
@@ -40,7 +49,7 @@ export async function getStaticProps() {
 
   return {
     // will be passed to the page component as props
-    props: { ittfData, btiData },
+    props: { ittfData, btiData, vikingurData, krData },
   };
 }
 
